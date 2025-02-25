@@ -57,7 +57,7 @@ public void setPhone(String phone) {
 }
 
  public String toString(){
-    return "User [id="+ id +", email="+email+". password"+ password+", fullname"+fullName+", address="+address+", phone="+phone+"]";
+    return "User [id="+ id +", email="+email+"password="+ password+", fullname="+fullName+", address="+address+", phone="+phone+"]";
  }
  
 }

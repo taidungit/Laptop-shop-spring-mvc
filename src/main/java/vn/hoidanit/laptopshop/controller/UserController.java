@@ -23,7 +23,8 @@ public class UserController {
     }
     @RequestMapping("/")
     public String getHomePage(Model model){
-       
+       List<User>arrUsers=this.userService.getAllUsersByEmail("lozsos123@gmail.com");
+       System.out.println(arrUsers);
         model.addAttribute("mount","test");
         model.addAttribute("dung","From controller with model");
         return "hello";
@@ -38,8 +39,9 @@ public class UserController {
     }
     @RequestMapping("/admin/user/{id}")
     public String getDetailUserPage(Model model,@PathVariable long id){
-        System.out.println("check path id = "+id);
+       User user =this.userService.getDataById(id);
         model.addAttribute("id", id);
+        model.addAttribute("user1", user);
         return "admin/user/show";
     }
     @RequestMapping("/admin/user/create")

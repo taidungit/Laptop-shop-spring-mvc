@@ -33,12 +33,16 @@
                         User Information
                     </div>
                     <ul class="list-group list-group-flush">
-                      <li class="list-group-item">Address</li>
-                      <li class="list-group-item">Password</li>
-                      <li class="list-group-item">Phone number</li>
+                      <li class="list-group-item">ID: ${user1.id}</li>
+                      <li class="list-group-item">Full Name: ${user1.fullName}</li>
+                      <li class="list-group-item">Email: ${user1.email}</li>
+                      <li class="list-group-item">Address: ${user1.address}</li>
+                      <li class="list-group-item">Password: ${user1.password}</li>
+                      <li class="list-group-item">Phone number: ${user1.phone}</li>
                     </ul>
                   </div>
                   
+                  <a href="/admin/user" class="btn btn-success mt-4 px-4">Back</a>
                   
             </div>
 
