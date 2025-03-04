@@ -48,7 +48,7 @@
                     </div>
 
                     <button type="submit" class="btn btn-warning">Update</button>
-                    <a href="/admin/user" class="btn btn-primary mx-4 px-4">Back</a>
+                    <a href="/admin/user" class="btn btn-success mx-4 px-4">Back</a>
                 </form:form>
             </div>
 
