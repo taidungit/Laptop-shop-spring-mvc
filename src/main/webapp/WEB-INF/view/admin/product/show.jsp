@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="Dũng Mount - Dự án laptopshop" />
     <meta name="author" content="Dũng Mount" />
-    <title>User - Dũng Mount</title>
+    <title>Product - Dũng Mount</title>
     <link href="/css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
@@ -24,32 +24,12 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">Manage User</h1>
+                    <h1 class="mt-4">Product</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item active"><a href="/admin">Dashboard</a></li>
                         <li class="breadcrumb-item active">Product</li>
                     </ol>
-                    <div class="row mt-4">
-                        <div class=" col-12 mx-auto">
-                            <h3>Delete user ${id}</h3>
-                            <hr />
-                           
-                            <div class="alert alert-danger" role="alert">
-                                Are you sure to delete this user!
-                              </div>
-                            
-                              <form:form method="post" action="/admin/user/delete" modelAttribute="newUser">
-                                <div class="mb-3" style="display: none;">
-                                    <label class="form-label">ID:</label>
-                                    <form:input value="${id}" type="text" class="form-control" path="id" />
-                                </div>   
-                              <button  type="submit" class="btn btn-danger">Confirm</button>
-                              <a href="/admin/user" class="btn btn-success mx-4 px-4">Back</a></form:form>
-                              
-                        </div>
-            
-                    </div>
-            
+                    
                 </div>
             </main>
             <jsp:include page="../layout/footer.jsp" />
@@ -58,9 +38,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
     <script src="/js/scripts.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
+    
 </body>
 
 </html>

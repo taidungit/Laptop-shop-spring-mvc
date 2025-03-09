@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,35 +30,29 @@
                         <li class="breadcrumb-item active">Product</li>
                     </ol>
                     <div class="row mt-4">
-                        <div class="col-md-6 col-12 mx-auto">
-                            <h3>Create a user</h3>
-                            <hr />
-                            <form:form method="post" action="/admin/user/create" modelAttribute="newUser">
-                                <div class="mb-3">
-                                    <label class="form-label">Email:</label>
-                                    <form:input type="email" class="form-control" path="email"/>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Password:</label>
-                                    <form:input type="password" class="form-control" path="password" />
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Phone number:</label>
-                                    <form:input type="text" path="phone" class="form-control"/>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Full Name:</label>
-                                    <form:input type="text" path="fullName" class="form-control"/>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Address:</label>
-                                    <form:input type="text" path="address" class="form-control"/>
-                                </div>
-                             
+                        <div class=" col-12 mx-auto">
+                           <div class="d-flex justify-content-between">
+                                <h3>User detail with id = ${id}</h3>
+                                
+                           </div> 
             
-                                <button type="submit" class="btn btn-primary">Create</button>
-                                <a href="/admin/user" class="btn btn-success mx-4 px-4">Back</a>
-                            </form:form>
+                            <hr />
+                            <div class="card" style="width: 70%;">
+                                <div class="card-header">
+                                    User Information
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                  <li class="list-group-item">ID: ${user1.id}</li>
+                                  <li class="list-group-item">Full Name: ${user1.fullName}</li>
+                                  <li class="list-group-item">Email: ${user1.email}</li>
+                                  <li class="list-group-item">Address: ${user1.address}</li>
+                                  <li class="list-group-item">Password: ${user1.password}</li>
+                                  <li class="list-group-item">Phone number: ${user1.phone}</li>
+                                </ul>
+                              </div>
+                              
+                              <a href="/admin/user" class="btn btn-success mt-4 px-4">Back</a>
+                              
                         </div>
             
                     </div>

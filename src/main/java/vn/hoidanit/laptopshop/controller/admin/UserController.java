@@ -1,4 +1,4 @@
-package vn.hoidanit.laptopshop.controller;
+package vn.hoidanit.laptopshop.controller.admin;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -37,7 +37,7 @@ public class UserController {
         List<User>users=this.userService.getAllUsers();
         model.addAttribute("users1",users);
         System.out.println(">>> Check users: "+users);
-        return "admin/user/table-user";
+        return "admin/user/show";
     }
  
     @RequestMapping("/admin/user/create")
@@ -58,7 +58,7 @@ public class UserController {
        User user =this.userService.getUserById(id);
         model.addAttribute("id", id);
         model.addAttribute("user1", user);
-        return "admin/user/show";
+        return "admin/user/detail";
     }
 
     @RequestMapping("/admin/user/update/{id}")
