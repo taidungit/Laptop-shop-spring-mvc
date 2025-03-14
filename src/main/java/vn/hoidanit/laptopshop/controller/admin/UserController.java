@@ -42,7 +42,7 @@ public class UserController {
        System.out.println(arrUsers);
         model.addAttribute("mount","test");
         model.addAttribute("dung","From controller with model");
-        return "hello";
+        return "/client/homepage/show";
     }
 
     @RequestMapping("/admin/user")
