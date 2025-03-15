@@ -306,10 +306,12 @@
 }
 
 .fruite .fruite-item .fruite-img {
+    object-fit: cover;
     overflow: hidden;
     transition: 0.5s;
     border-radius: 10px 10px 0 0;
 }
+
 
 .fruite .fruite-item .fruite-img img {
     transition: 0.5s;
