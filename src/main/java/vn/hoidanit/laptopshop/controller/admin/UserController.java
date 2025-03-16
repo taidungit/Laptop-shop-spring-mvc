@@ -71,7 +71,7 @@ public class UserController {
         System.out.println (error.getField() + " - " + error.getDefaultMessage());
     }
     if(newUserBindingResult.hasErrors()){
-        return"redirect:/admin/user/create";
+        return"/admin/user/create";
     }
 
 
@@ -86,7 +86,7 @@ public class UserController {
         return "redirect:/admin/user";
     }
 
-    @RequestMapping("/admin/user/{id}")
+    @GetMapping("/admin/user/{id}")
     public String getDetailUserPage(Model model,@PathVariable long id){
        User user =this.userService.getUserById(id);
         model.addAttribute("id", id);
@@ -123,7 +123,6 @@ public class UserController {
     @PostMapping("/admin/user/delete")
     public String postDeleteUser(Model model,@ModelAttribute("newUser") User dungmount ){
       this.userService.deleteAUser(dungmount.getId());
-      
         return "redirect:/admin/user";
     }
 

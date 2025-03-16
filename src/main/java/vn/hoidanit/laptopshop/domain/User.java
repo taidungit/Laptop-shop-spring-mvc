@@ -41,7 +41,7 @@ public class User {
  @NotNull
  @NotEmpty(message = "Vui lòng nhập SĐT")
  private String phone;
- @NotNull
+ 
  private String avatar;
 
  @ManyToOne

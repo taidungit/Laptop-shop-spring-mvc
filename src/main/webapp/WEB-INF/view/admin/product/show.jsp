@@ -1,5 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
 
 
 <!DOCTYPE html>
@@ -49,21 +51,21 @@
                                 </thead>
                                 <tbody>
                                  
-                                  <!-- <c:forEach var="users" items="${users1}">
+                                  <c:forEach var="product" items="${products}">
                                     <tr>
-                                      <th scope="row">${users.id}</th>
-                                      <td>${users.email}</td>
-                                      <td>${users.fullName}</td>
-                                      <td>${users.role.name}</td>
+                                      <th scope="row">${product.id}</th>
+                                      <td>${product.name}</td>
+                                      <td>${product.price}</td>
+                                      <td>${product.factory}</td>
                                       <td>
-                                          <a href="/admin/user/${users.id}" class="btn btn-success">View</a>
-                                          <a href="/admin/user/update/${users.id}" class="btn btn-warning mx-2">Update</a>
-                                          <a href="/admin/user/delete/${users.id}" class="btn btn-danger">Delete</a>
+                                          <a href="/admin/product/${product.id}" class="btn btn-success">View</a>
+                                          <a href="/admin/product/update/${product.id}" class="btn btn-warning mx-2">Update</a>
+                                          <a href="/admin/product/delete/${product.id}" class="btn btn-danger">Delete</a>
               
                                       </td>
                                        
                                     </tr>
-                                </c:forEach> -->
+                                </c:forEach>
                             
                                 </tbody>
                               </table>

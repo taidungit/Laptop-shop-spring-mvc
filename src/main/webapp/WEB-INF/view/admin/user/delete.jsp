@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +44,8 @@
                                     <form:input value="${id}" type="text" class="form-control" path="id" />
                                 </div>   
                               <button  type="submit" class="btn btn-danger">Confirm</button>
-                              <a href="/admin/user" class="btn btn-success mx-4 px-4">Back</a></form:form>
+                              <a href="/admin/user" class="btn btn-success mx-4 px-4">Back</a>
+                            </form:form>
                               
                         </div>
             
