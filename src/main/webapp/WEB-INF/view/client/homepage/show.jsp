@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 
 <!DOCTYPE html>
@@ -40,8 +41,22 @@
         <div class="spinner-grow text-primary" role="status"></div>
     </div>
     <!-- Spinner End -->
-
-
+    <div class="container-fluid fixed-top">
+        <div class="container topbar bg-primary d-none d-lg-block">
+            <div class="d-flex justify-content-between">
+                <div class="top-info ps-2">
+                    <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> <a href="#"
+                            class="text-white">Hoàng Mai, Hà Nội</a></small>
+                    <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#"
+                            class="text-white">dungmount75@gmail.com</a></small>
+                </div>
+                <div class="top-link pe-2">
+                    <a href="#" class="text-white"><small class="text-white mx-2">Privacy Policy</small>/</a>
+                    <a href="#" class="text-white"><small class="text-white mx-2">Terms of Use</small>/</a>
+                    <a href="#" class="text-white"><small class="text-white ms-2">Sales and Refunds</small></a>
+                </div>
+            </div>
+        </div>
     <jsp:include page="../layout/header.jsp" />
 
     <!-- Modal Search Start -->
@@ -97,182 +112,38 @@
                         <div class="row g-4">
                             <div class="col-lg-12">
                                 <div class="row g-4">
+                                    <c:forEach var="product" items="${products}">
+
                                     <div class="col-md-6 col-lg-4 col-xl-3">
                                         <div class="rounded position-relative fruite-item">
                                             <div class="fruite-img">
-                                                <img src="/client/img/product1.jpg"
+                                                <img src="/images/product/${product.image}"
                                                     class="img-fluid w-100 rounded-top "  alt="">
                                             </div>
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
                                                 style="top: 10px; left: 10px;">Laptop</div>
                                             <div
                                                 class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>Laptop Dell</h4>
-                                                <p>Intel Core i5-13500</p>
-                                                <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                <h4 style="font-size:15px">
+                                                   <a href="/product/${product.id}"> ${product.name}</a>
+                                                </h4>
+                                                <p style="font-size:13px">${product.shortDesc}</p>
+                                                <div class="d-flex  flex-lg-wrap">
+                                                    <p style="font-size:14px; text-align:center;width:100%" 
+                                                    class="text-dark fw-bold mb-3">
+                                                        <fmt:formatNumber type="number" value="${product.price}"/>đ
+                                                    </p>
                                                     <a href="#"
-                                                        class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-shopping-bag me-2 text-primary"></i>
+                                                        class="mx-auto btn border border-secondary rounded-pill px-3 text-primary">
+                                                        <i
+                                                            class="fa fa-shopping-bag me-2 text-primary">
+                                                        </i>
                                                         Add to cart</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-4 col-xl-3">
-                                        <div class="rounded position-relative fruite-item">
-                                            <div class="fruite-img">
-                                                <img src="/client/img/product2.jpg"
-                                                    class="img-fluid w-100 rounded-top "  alt="">
-                                            </div>
-                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                style="top: 10px; left: 10px;">Laptop</div>
-                                            <div
-                                                class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>Lenovo Thinkpad</h4>
-                                                <p>Intel Core i7 Alder Lake - 1255U</p>
-                                                <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                    <a href="#"
-                                                        class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                        Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-4 col-xl-3">
-                                        <div class="rounded position-relative fruite-item">
-                                            <div class="fruite-img">
-                                                <img src="/client/img/product3.jpg"
-                                                    class="img-fluid w-100 rounded-top "  alt="">
-                                            </div>
-                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                style="top: 10px; left: 10px;">Laptop</div>
-                                            <div
-                                                class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>Dell XPS 9315</h4>
-                                                <p>Intel Core i7 Alder Lake - 1255U</p>
-                                                <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                    <a href="#"
-                                                        class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                        Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-4 col-xl-3">
-                                        <div class="rounded position-relative fruite-item">
-                                            <div class="fruite-img">
-                                                <img src="/client/img/product4.jpg"
-                                                    class="img-fluid w-100 rounded-top "  alt="">
-                                            </div>
-                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                style="top: 10px; left: 10px;">Laptop</div>
-                                            <div
-                                                class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>Dell Inspiron</h4>
-                                                <p>Intel Core i7 Alder Lake - 1255U</p>
-                                                <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                    <a href="#"
-                                                        class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                        Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-4 col-xl-3">
-                                        <div class="rounded position-relative fruite-item">
-                                            <div class="fruite-img">
-                                                <img src="/client/img/product5.3.jpg"
-                                                    class="img-fluid w-100 rounded-top " style="height:214px"  alt="">
-                                            </div>
-                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                style="top: 10px; left: 10px;">Laptop</div>
-                                            <div
-                                                class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>Asus pink</h4>
-                                                <p>Intel Core i7 Alder Lake - 1255U</p>
-                                                <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                    <a href="#"
-                                                        class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                        Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-4 col-xl-3">
-                                        <div class="rounded position-relative fruite-item">
-                                            <div class="fruite-img">
-                                                <img src="/client/img/product6.1.jpg"
-                                                    class="img-fluid w-100 rounded-top " style="height:214px" alt="">
-                                            </div>
-                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                style="top: 10px; left: 10px;">Laptop</div>
-                                            <div
-                                                class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>Laptop HP</h4>
-                                                <p>Intel Core i7 Alder Lake - 1255U</p>
-                                                <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                    <a href="#"
-                                                        class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                        Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-4 col-xl-3">
-                                        <div class="rounded position-relative fruite-item">
-                                            <div class="fruite-img">
-                                                <img src="/client/img/product7.jpg"
-                                                    class="img-fluid w-100 rounded-top "   alt="">
-                                            </div>
-                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                style="top: 10px; left: 10px;">Laptop</div>
-                                            <div
-                                                class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>Laptop Gaming</h4>
-                                                <p>AMD Radeon Graphics</p>
-                                                <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                    <a href="#"
-                                                        class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                        Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-4 col-xl-3">
-                                        <div class="rounded position-relative fruite-item">
-                                            <div class="fruite-img">
-                                                <img src="/client/img/product8.jpg"
-                                                    class="img-fluid w-100 rounded-top " alt="">
-                                            </div>
-                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                style="top: 10px; left: 10px;">Laptop</div>
-                                            <div
-                                                class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>Macbook Air</h4>
-                                                <p>AMD Radeon Graphics</p>
-                                                <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                    <a href="#"
-                                                        class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                        Add to cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    </c:forEach>                        
                                 </div>
                             </div>
                         </div>
