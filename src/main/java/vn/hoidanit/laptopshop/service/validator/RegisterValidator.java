@@ -36,13 +36,13 @@ public class RegisterValidator implements ConstraintValidator<RegisterChecked, R
             .disableDefaultConstraintViolation();
     valid = false;
         }
-    //     if(user.getFirstName()!=null){
-    //         context.buildConstraintViolationWithTemplate("Vui lòng nhập tên")
-    //         .addPropertyNode("firstName")
-    //         .addConstraintViolation()
-    //         .disableDefaultConstraintViolation();
-    // valid = false; 
-    //     }
+        if(user.getFirstName().length()<3){
+            context.buildConstraintViolationWithTemplate("Vui lòng nhập tối thiếu 3 kí tự")
+            .addPropertyNode("firstName")
+            .addConstraintViolation()
+            .disableDefaultConstraintViolation();
+    valid = false; 
+        }
         return valid;
     }
 }
