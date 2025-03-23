@@ -16,6 +16,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import vn.hoidanit.laptopshop.service.validator.StrongPassword;
 
 
 @Entity
@@ -35,11 +36,9 @@ public class User {
  @NotNull
  @NotEmpty(message = "Vui lòng nhập tên người dùng")
  private String fullName;
- @NotNull
- @NotEmpty(message = "Vui lòng nhập địa chỉ")
+ 
  private String address;
- @NotNull
- @NotEmpty(message = "Vui lòng nhập SĐT")
+ 
  private String phone;
  
  private String avatar;

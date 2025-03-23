@@ -12,4 +12,6 @@ void deleteById(long id);
 List<User>findOneByEmail(String email);
 List<User>findAll();
 User findById(long id);
+boolean existsByEmail(String email);
+
 }
