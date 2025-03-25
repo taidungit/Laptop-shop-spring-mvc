@@ -34,24 +34,24 @@ public class HomePageController {
     public String getHomePage(Model model){
         List<Product>products=this.productService.fetchProduct();
         model.addAttribute("products",products);
-        return "/client/homepage/show";
+        return "client/homepage/show";
     }
     @GetMapping("/register")
     public String getRegisterPage(Model model){
         model.addAttribute("registerUser",new RegisterDTO());
-        return "/client/auth/register";
+        return "client/auth/register";
     }
     @PostMapping("/register")
-    public String handelRegister(@Valid @ModelAttribute("registerUser")RegisterDTO registerDTO,BindingResult bindingResult){
+    public String handelRegister( @ModelAttribute("registerUser") @Valid RegisterDTO registerDTO,BindingResult bindingResult){
         if(bindingResult.hasErrors()){
-            return"/client/auth/register";
+            return"client/auth/register";
         }
         User user=this.userService.RegisterDTOtoUser(registerDTO);
         String hashPassword=this.passwordEncoder.encode(user.getPassword());
         user.setPassword(hashPassword);
         user.setRole(this.userService.getRoleByName("USER"));
 
-    //    this.userService.handleSaveUser(user);
+       this.userService.handleSaveUser(user);
         return "redirect:/login";
     }
     @GetMapping("/login")
