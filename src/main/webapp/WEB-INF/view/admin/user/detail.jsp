@@ -40,6 +40,8 @@
             
                             <hr />
                             <div class="card" style="width: 70%;">
+                                <img src="/images/avatar/${user1.avatar}" alt="">
+
                                 <div class="card-header">
                                     User Information
                                 </div>

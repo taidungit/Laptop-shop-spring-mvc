@@ -101,13 +101,16 @@ public class UserController {
         return "admin/user/update";
     }
     @PostMapping("/admin/user/update")
-    public String postUpdateUser(Model model,@ModelAttribute("newUser") User dungmount ){
+    public String postUpdateUser(Model model,@ModelAttribute("newUser") User dungmount,
+    @RequestParam("dungmountFile") MultipartFile file ){
        User currentUser =this.userService.getUserById(dungmount.getId());
        if(currentUser!=null){
         // currentUser.setEmail(dungmount.getEmail());
         currentUser.setAddress(dungmount.getAddress());
         currentUser.setPhone(dungmount.getPhone());
         currentUser.setFullName(dungmount.getFullName());
+        String image = this.uploadService.handleSaveUploadFile(file,"avatar");
+        currentUser.setAvatar(image);
        }
        this.userService.handleSaveUser(currentUser);
         return "redirect:/admin/user";
