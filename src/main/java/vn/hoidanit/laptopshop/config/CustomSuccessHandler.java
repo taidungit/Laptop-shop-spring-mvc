@@ -53,7 +53,11 @@ protected void clearAuthenticationAttributes(HttpServletRequest request,Authenti
     if(user!=null){
     session.setAttribute("FullName",user.getFullName());
     session.setAttribute("avatar", user.getAvatar());
-
+    session.setAttribute("email",user.getEmail());
+    session.setAttribute("id", user.getId());
+        int sum=user.getCart().getSum();
+    session.setAttribute("sum", sum);
+        
     }
 }
  private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
