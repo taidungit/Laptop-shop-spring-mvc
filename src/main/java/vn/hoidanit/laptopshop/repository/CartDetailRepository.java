@@ -12,4 +12,5 @@ import vn.hoidanit.laptopshop.domain.User;
 public interface CartDetailRepository extends JpaRepository<CartDetail, Long> {
    boolean existsByCartAndProduct(Cart cart,Product product);
    CartDetail findByCartAndProduct(Cart cart,Product product);
+   int countByCart(Cart cart);
 }
