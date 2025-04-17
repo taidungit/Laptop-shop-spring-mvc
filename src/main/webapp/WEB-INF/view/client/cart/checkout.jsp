@@ -53,7 +53,7 @@
             <div class="container ">
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item active"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item active">Cart</li>
+                    <li class="breadcrumb-item active">Thông tin thanh toán</li>
                 </ol>
                 <div class="table-responsive table-hover">
                     

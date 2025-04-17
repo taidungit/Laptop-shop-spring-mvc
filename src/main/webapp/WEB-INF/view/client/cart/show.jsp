@@ -53,7 +53,7 @@
             <div class="container ">
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item active"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item active">Cart</li>
+                    <li class="breadcrumb-item active">Giỏ hàng</li>
                 </ol>
                 <div class="table-responsive table-hover">
                     
@@ -76,7 +76,7 @@
                                              </td>
                                          </tr>
                             </c:if>
-                            <c:forEach var="cartDetail" items="${cartDetails}">
+                            <c:forEach var="cartDetail" items="${cartDetails}" varStatus="status">
                             <tr>
                                 <th scope="row">
                                     <div class="d-flex align-items-center">
@@ -98,7 +98,7 @@
                                             <i class="fa fa-minus"></i>
                                             </button>
                                         </div>
-                                        <input type="text" class="form-control form-control-sm text-center border-0" value="${cartDetail.quantity}" data-cart-detail-id="${cartDetail.id}" data-cart-detail-price="${cartDetail.price}">
+                                        <input type="text" class="form-control form-control-sm text-center border-0" value="${cartDetail.quantity}" data-cart-detail-id="${cartDetail.id}" data-cart-detail-price="${cartDetail.price}"  data-cart-detail-index="${status.index}" >
                                         <div class="input-group-btn">
                                             <button class="btn btn-sm btn-plus rounded-circle bg-light border">
                                                 <i class="fa fa-plus"></i>
@@ -158,7 +158,7 @@
             <form:form action="/confirm-checkout" method="post" modelAttribute="cart"> 
                     <input type="hidden" name="${_csrf.parameterName}"
                     value="${_csrf.token}" />
-                    <div style="display: block;">
+                    <div style="display: none;">
                         <c:forEach var="cartDetail" items="${cart.cartDetails}"
                             varStatus="status">
                             <div class="mb-3">
