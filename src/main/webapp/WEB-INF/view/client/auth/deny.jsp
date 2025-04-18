@@ -17,7 +17,7 @@
     <body >
        <div class="container">
            <div class="row">
-               <div class="col-12 mt-2 ">
+               <div class="col-12 mt-5 ">
                 <div class="alert alert-danger" style="position:relative;z-index:2">
                     You are forbidden to accessing this website
                    </div>
