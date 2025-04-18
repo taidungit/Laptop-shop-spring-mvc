@@ -24,27 +24,27 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">Manage Product</h1>
+                    <h1 class="mt-4">Manage order</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item active"><a href="/admin">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Product</li>
+                        <li class="breadcrumb-item active">order</li>
                     </ol>
                     <div class="row mt-4">
                         <div class=" col-12 mx-auto">
-                            <h3>Delete product ${id}</h3>
+                            <h3>Delete order ${id}</h3>
                             <hr />
                            
                             <div class="alert alert-danger" role="alert">
-                                Are you sure to delete this product!
+                                Are you sure to delete this order!
                               </div>
                             
-                              <form:form method="post" action="/admin/product/delete" modelAttribute="newProduct">
+                              <form:form method="post" action="/admin/order/delete" modelAttribute="newOrder">
                                 <div class="mb-3" style="display: none;">
                                     <label class="form-label">ID:</label>
                                     <form:input value="${id}" type="text" class="form-control" path="id" />
                                 </div>   
                               <button  type="submit" class="btn btn-danger">Confirm</button>
-                              <a href="/admin/product" class="btn btn-success mx-4 px-4">Back</a>
+                              <a href="/admin/order" class="btn btn-success mx-4 px-4">Back</a>
                             </form:form>
                               
                         </div>

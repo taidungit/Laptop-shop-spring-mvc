@@ -50,7 +50,7 @@ public class ProductService {
     public void deleteAProduct(long id){
         this.productRespository.deleteById(id);
     }
-    public void handleAddProductToCart(String email,long productId, HttpSession session){
+    public void handleAddProductToCart(String email,long productId, HttpSession session,long quantity){
         User user=this.userService.getUserByEmail(email);
             if(user!=null){
                 Cart cart=this.cartRepository.findByUser(user);
@@ -68,19 +68,19 @@ public class ProductService {
                         CartDetail oldDetail=this.cartDetailRepository.findByCartAndProduct(cart, p);
                         if(oldDetail==null){
                         CartDetail cd = new CartDetail();
-                        cd.setQuantity(1);
+                        cd.setQuantity(quantity);
                         cd.setCart(cart);
                         cd.setProduct(p);
                         cd.setPrice(p.getPrice());
                         this.cartDetailRepository.save(cd);
                         // update cart(sum)
                         int s=cart.getSum()+1;
-                        cart.setSum(cart.getSum()+1);
+                        cart.setSum(cart.getSum()+(int)quantity);
                         this.cartRepository.save(cart);
                         session.setAttribute("sum", s);
                         }
                         else{  
-                        oldDetail.setQuantity(oldDetail.getQuantity()+1);
+                        oldDetail.setQuantity(oldDetail.getQuantity()+quantity);
                         this.cartDetailRepository.save(oldDetail);
                         }
                     }
@@ -127,20 +127,30 @@ public class ProductService {
 
     public void handlePlaceOrder(User user,HttpSession session,
     String receiverName,String receiverAddress,String receiverPhone){
-            // create order
-            Order order=new Order();
-            order.setUser(user);
-            order.setReceiverName(receiverName);
-            order.setReceiverAddress(receiverAddress);
-            order.setReceiverPhone(receiverPhone);
-            order = this.orderRepository.save(order);
-            // create orderDetail
+           
 
             // step1 creat cart by user
             Cart cart = this.cartRepository.findByUser(user);
             if(cart!=null){
                 List<CartDetail>cartDetails=cart.getCartDetails();
                 if(cartDetails!=null){
+
+                    // create order
+                    Order order=new Order();
+                    order.setUser(user);
+                    order.setReceiverName(receiverName);
+                    order.setReceiverAddress(receiverAddress);
+                    order.setReceiverPhone(receiverPhone);
+                    order.setStatus("PENDING");
+                    order = this.orderRepository.save(order);
+                    double sum=0;
+                    for(CartDetail cd:cartDetails){
+                        sum+=cd.getPrice();
+                    }
+                    order.setTotalPrice(sum);
+                    order=this.orderRepository.save(order);
+                    // create orderDetail
+
                     for(CartDetail cd:cartDetails){
                     OrderDetail orderDetail= new OrderDetail();
                     orderDetail.setOrder(order);
