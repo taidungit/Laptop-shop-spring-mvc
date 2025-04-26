@@ -131,6 +131,7 @@ public String DeleteProductInCart(@PathVariable long id,HttpServletRequest reque
      this.productService.handleAddProductToCart(email, id, session, quantity);
      return "redirect:/product/" + id;
  }
+
  @GetMapping("/products")
  public String getClientProduct(Model model,@RequestParam("page") Optional<String> pageOptional){
      int page = 1;
